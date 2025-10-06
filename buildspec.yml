@@ -8,4 +8,4 @@ phases:
       
   build:
     commands:
-      - mvn clean package -DskipTests -e -X
+      - mvn clean package
