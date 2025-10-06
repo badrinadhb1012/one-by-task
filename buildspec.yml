@@ -3,12 +3,9 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing fontconfig, Java 17 Amazon Corretto, and Maven..."
-      - sudo yum install -y fontconfig
-      # Choose ONLY ONE of these Java installation methods:
-      - sudo yum install -y java-17-amazon-corretto-devel
-      # Remove the wget and rpm installation lines below
-      - sudo yum install -y maven
+      - echo "Installing dependencies..."
+      - sudo yum install -y fontconfig java-17-amazon-corretto-devel maven
+      - echo "=== Verification ==="
       - java -version
       - mvn -version
 
