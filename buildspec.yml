@@ -10,11 +10,5 @@ phases:
 
   build:
     commands:
-      - echo "Step 1: Cleaning project..."
-      - mvn clean
-      - echo "Step 2: Downloading dependencies..."
-      - mvn dependency:resolve
-      - echo "Step 3: Compiling code..."
-      - mvn compile -DskipTests
-      - echo "Step 4: Packaging application..."
-      - mvn package -DskipTests
+      - echo "Building with Maven..."
+      - mvn clean package -DskipTests
