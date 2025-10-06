@@ -4,6 +4,8 @@ phases:
     commands:
       - sudo yum install -y java-17-amazon-corretto-devel maven
       - java -version
+      - mvn -version
+      
   build:
     commands:
-      - mvn clean package -DskipTests
+      - mvn clean package -DskipTests -e -X
