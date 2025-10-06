@@ -3,12 +3,16 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing Java and Maven..."
-      - yum install -y java-17-amazon-corretto-devel maven
+      - echo "Installing fontconfig, Java 17 Amazon Corretto, and Maven..."
+      - sudo yum install -y fontconfig
+      - sudo yum install -y java-17-amazon-corretto-devel
+      - wget https://corretto.aws/downloads/latest/amazon-corretto-17-x64-linux-jdk.rpm
+      - sudo yum install -y amazon-corretto-17-x64-linux-jdk.rpm
+      - sudo yum install -y maven
       - java -version
       - mvn -version
+
   build:
     commands:
       - echo "Building with Maven..."
-      - maven clean package -DskipTests
-
+      - mvn clean package -DskipTests
