@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing Java and Maven..."
+      - yum install -y java-17-amazon-corretto-devel maven
+  build:
+    commands:
+      - echo "Building with Maven..."
+      - mvn clean package -DskipTests
