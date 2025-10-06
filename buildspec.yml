@@ -5,6 +5,8 @@ phases:
     commands:
       - echo "Installing Java and Maven..."
       - yum install -y java-17-amazon-corretto-devel maven
+      - java -version
+      - mvn -version
   build:
     commands:
       - echo "Building with Maven..."
