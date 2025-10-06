@@ -5,9 +5,9 @@ phases:
     commands:
       - echo "Installing fontconfig, Java 17 Amazon Corretto, and Maven..."
       - sudo yum install -y fontconfig
+      # Choose ONLY ONE of these Java installation methods:
       - sudo yum install -y java-17-amazon-corretto-devel
-      - wget https://corretto.aws/downloads/latest/amazon-corretto-17-x64-linux-jdk.rpm
-      - sudo yum install -y amazon-corretto-17-x64-linux-jdk.rpm
+      # Remove the wget and rpm installation lines below
       - sudo yum install -y maven
       - java -version
       - mvn -version
@@ -16,5 +16,3 @@ phases:
     commands:
       - echo "Building with Maven..."
       - mvn clean package -DskipTests
-
-
