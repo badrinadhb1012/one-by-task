@@ -1,20 +1,9 @@
 version: 0.2
-
 phases:
   install:
     commands:
-      - echo "Installing dependencies..."
-      - sudo yum install -y fontconfig java-17-amazon-corretto-devel maven
+      - sudo yum install -y java-17-amazon-corretto-devel maven
       - java -version
-      - mvn -version
-
   build:
     commands:
-      - echo "Step 1: Cleaning project..."
-      - mvn clean
-      - echo "Step 2: Downloading dependencies..."
-      - mvn dependency:resolve
-      - echo "Step 3: Compiling code..."
-      - mvn compile -DskipTests
-      - echo "Step 4: Packaging application..."
-      - mvn package -DskipTests
+      - mvn clean package -DskipTests
