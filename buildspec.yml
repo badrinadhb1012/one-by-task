@@ -10,4 +10,5 @@ phases:
   build:
     commands:
       - echo "Building with Maven..."
-      - mvn clean package -DskipTests
+      - maven clean package -DskipTests
+
