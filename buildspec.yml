@@ -5,17 +5,22 @@ phases:
     runtime-versions:
       java: corretto17
     commands:
-      - echo "Using Java version:"
+      - echo "Java and Maven environment:"
       - java -version
-      - echo "Using Maven version:"
       - mvn -v
 
   build:
     commands:
-      - echo "Starting Maven build in debug mode..."
-      - mvn clean package -Dmaven.test.skip=true -e -X
+      - echo "Building Spring Boot project..."
+      - mvn clean package -Dmaven.test.skip=true
+
+  post_build:
+    commands:
+      - echo "Build completed successfully."
+      - ls -l target/
 
 artifacts:
   files:
     - target/*.jar
+    - target/*.war
   discard-paths: yes
