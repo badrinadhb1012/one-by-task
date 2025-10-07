@@ -5,23 +5,23 @@ phases:
     runtime-versions:
       java: corretto17
     commands:
-      - echo Installing Maven 3.8.4...
-      - mvn -v
-      - echo Installing dependencies...
-      - mvn clean install -DskipTests
+      - echo Installing project dependencies...
+      - mvn dependency:resolve
 
   pre_build:
     commands:
-      - echo Pre-build checks completed.
+      - echo Pre-build validation...
+      - mvn validate
 
   build:
     commands:
-      - echo Building the Maven project...
-      - mvn clean package -DskipTests
+      - echo Building Maven project...
+      - mvn clean package -Dmaven.test.skip=true
 
   post_build:
     commands:
-      - echo Build phase completed successfully.
+      - echo Build completed successfully.
+      - echo Listing target directory...
       - ls -l target/
 
 artifacts:
