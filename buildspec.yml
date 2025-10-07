@@ -1,13 +1,30 @@
 version: 0.2
+
 phases:
   install:
+    runtime-versions:
+      java: corretto17
     commands:
-      - sudo yum install -y java-17-amazon-corretto-devel maven
-      - java -version
-      - mvn -version
+      - echo Installing Maven 3.8.4...
+      - mvn -v
+      - echo Installing dependencies...
+      - mvn clean install -DskipTests
+
+  pre_build:
+    commands:
+      - echo Pre-build checks completed.
+
   build:
     commands:
-      - mvn clean package
+      - echo Building the Maven project...
+      - mvn clean package -DskipTests
+
   post_build:
     commands:
-      - echo "Maven build completed"
+      - echo Build phase completed successfully.
+      - ls -l target/
+
+artifacts:
+  files:
+    - target/*.jar
+  discard-paths: yes
