@@ -8,4 +8,4 @@ phases:
       
   build:
     commands:
-      - clean package
+      - mvn clean package
