@@ -5,24 +5,15 @@ phases:
     runtime-versions:
       java: corretto17
     commands:
-      - echo Installing Maven and verifying environment...
-      - mvn -v
+      - echo "Using Java version:"
       - java -version
-
-  pre_build:
-    commands:
-      - echo Cleaning and validating project...
-      - mvn clean validate -Dmaven.test.skip=true -X
+      - echo "Using Maven version:"
+      - mvn -v
 
   build:
     commands:
-      - echo Building Maven project...
-      - mvn package -Dmaven.test.skip=true -X
-
-  post_build:
-    commands:
-      - echo Build completed successfully.
-      - ls -l target/ || echo "No target folder found."
+      - echo "Starting Maven build in debug mode..."
+      - mvn clean package -Dmaven.test.skip=true -e -X
 
 artifacts:
   files:
