@@ -5,7 +5,9 @@ phases:
       - sudo yum install -y java-17-amazon-corretto-devel maven
       - java -version
       - mvn -version
-      
   build:
     commands:
       - mvn clean package
+  post_build:
+    commands:
+      - echo "Maven build completed"
