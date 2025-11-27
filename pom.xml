@@ -12,11 +12,12 @@
     </parent>
 
     <groupId>in.javahome</groupId>
-    <artifactId>myweb1.0</artifactId>
+    <artifactId>myweb1.0</artifactId>   <!-- Your project name -->
     <version>8.8.4</version>
     <packaging>war</packaging>
 
     <name>myweb</name>
+
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -48,7 +49,7 @@
             <artifactId>spring-data-elasticsearch</artifactId>
         </dependency>
 
-        <!-- Required for WAR Deployment -->
+        <!-- Required for WAR Deployment (Tomcat provided) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -65,14 +66,14 @@
     </dependencies>
 
     <build>
-        <finalName>myweb</finalName>
+        <!-- WAR name: myweb1.0-8.8.4.war -->
+        <finalName>${project.artifactId}-${project.version}</finalName>
 
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <!-- Update this to your MAIN class package -->
                     <mainClass>in.javahome.myweb.MywebApplication</mainClass>
                 </configuration>
             </plugin>
