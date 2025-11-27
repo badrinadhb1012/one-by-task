@@ -7,13 +7,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0</version>
+        <version>3.0.1</version>
         <relativePath/>
     </parent>
 
     <groupId>in.javahome</groupId>
     <artifactId>myweb</artifactId>   <!-- Your project name -->
-    <version>8.8.5</version>
+    <version>8.8.6</version>
     <packaging>war</packaging>
 
     <name>myweb</name>
