@@ -2,25 +2,15 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      java: corretto17
     commands:
-      - echo "Java and Maven environment:"
-      - java -version
-      - mvn -v
-
+      - echo "No backend build needed. Static website only."
   build:
     commands:
-      - echo "Building Spring Boot project..."
-      - mvn clean package -Dmaven.test.skip=true
-
-  post_build:
-    commands:
-      - echo "Build completed successfully."
-      - ls -l target/
+      - echo "Preparing static website files..."
+      - ls -R
 
 artifacts:
   files:
-    - target/*.jar
-    - target/*.war
-  discard-paths: yes
+    - index.html
+    - assets/**/*
+  discard-paths: no
